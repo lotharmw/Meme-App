@@ -28,8 +28,17 @@ function MemeCard({ all }) {
   return (
     <>
       <div className="card card-side bg-base-300 shadow-xl lg:max-w-screen-lg m-auto">
-        <figure className="w-1/2">
+        <figure className="w-1/2 relative">
           <img src={all[memeIndex].url} alt="" />
+          <div className="flex flex-col justify-between items-center absolute">
+            {caption.map((cap, index) => (
+              <textarea
+                key={index}
+                className="textarea textarea-xs w-full max-w-xs bg-white text-black font-['Impact'] text-2xl"
+                value={cap}
+              ></textarea>
+            ))}
+          </div>
         </figure>
         <div className="card-body">
           <h2 className="card-title">{all[memeIndex].name}</h2>
